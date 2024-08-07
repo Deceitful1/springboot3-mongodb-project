@@ -2,10 +2,11 @@ package com.linsgabriel.workshopmongo;
 
 import com.linsgabriel.workshopmongo.entities.User;
 import com.linsgabriel.workshopmongo.resources.UserResource;
+import com.linsgabriel.workshopmongo.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackageClasses = {User.class, UserResource.class})
+@SpringBootApplication(scanBasePackageClasses = {User.class, UserResource.class, UserService.class})
 public class WorkshopmongoApplication
 {
 
