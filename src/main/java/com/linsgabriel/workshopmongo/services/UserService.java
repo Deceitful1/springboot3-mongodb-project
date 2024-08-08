@@ -40,13 +40,26 @@ public class UserService
     {
         User user = findById(id);
         if (user != null)
-        userRepository.deleteById(id);
+            userRepository.deleteById(id);
     }
 
 
     public User fromDTO(UserDTO userDTO)
     {
         return new User(userDTO.getId(), userDTO.getName(), userDTO.getEmail());
+    }
+
+    public User update(User user)
+    {
+        User newObj = userRepository.findById(user.getId()).get();
+        updateData(newObj, user);
+        return userRepository.save(newObj);
+    }
+
+    private void updateData(User newObj, User user)
+    {
+        newObj.setName(user.getName());
+        newObj.setEmail(user.getEmail());
     }
 
 
